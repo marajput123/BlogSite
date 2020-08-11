@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title%}
+  My Blogs
+{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/_post_cards.css' %}">
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class='display-4'>My Blogs.</h1>
+      <hr class='my-4'>
+
+      {% for post in myblog_list %}
+          <div class="card">
+            {% if post.is_published %}
+            <p class= 'btn btn-success' >Published</p>
+            {% else %}
+            <p class= 'btn btn-danger' >Not Published</p>
+            {% endif %}
+      <blockquote class="blockquote text-center" style = 'margin: 7px 7px 0px 7px;'>
+        <p class="mb-0 p-3 mb-2 "><a class="text-secondary" href="{{post.id}}">{{post.title}}.</a></p>
+        <footer class="blockquote-footer">{{post.user.last_name}}, {{post.user.first_name}}</footer>
+      </blockquote>
+
+      <hr class= 'my-4' style = 'margin: 0px 10px -10px 10px'>
+      <p class = 'lead' id = 'card-content'>{{post.content |truncatewords:25}} </p>
+      <p class= 'lead' id = 'card-date'>-{{post.create_date}}</p>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

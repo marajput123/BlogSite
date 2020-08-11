@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title%}
+  Create a Blog
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <form class="" method="post">
+        {%csrf_token%}
+        {{form.as_p}}
+        <div style='text-align:center'>
+          <input style= 'text-align:center'class= 'btn btn-primary'type="submit" name="" value="Save">
+        </div>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}

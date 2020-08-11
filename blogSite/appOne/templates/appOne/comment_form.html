@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Create Comment
+{% endblock %}
+
+{% block login %}
+<form class="form-inline" action="{% url 'user_login' %}">
+  {% csrf_token %}
+  <button style = "margin-left: 5px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class='display-4'></h1>
+        <form class="" method="post">
+          <div class="form-group">
+            {% csrf_token %}
+            <!-- <label for="author">Name:</label>
+            {{form.author}} -->
+            <label style='margin-top:5px;'for="com_content">Comment:</label>
+            {{form.com_content}}
+            {{form.post}}
+          </div>
+          <input type="submit" name="" value="submit">
+        </form>
+
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+{% block title %}
+Posts
+{% endblock %}
+
+{% block login %}
+<form class="form-inline" action="{% url 'user_login' %}">
+  {% csrf_token %}
+  <button style = "margin-left: 5px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/_post_cards.css' %}">
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class = 'display-4'>Community Blogs!</h1>
+      <hr class = 'my-4'>
+
+
+        {% for post in posts %}
+            <div class="card">
+        <blockquote class="blockquote text-center" style = 'margin: 7px 7px 0px 7px;'>
+          <p class="mb-0 p-3 mb-2 "><a class="text-secondary" href="{{post.id}}">{{post.title}}.</a></p>
+          <footer class="blockquote-footer">{{post.user.last_name}}, {{post.user.first_name}}</footer>
+        </blockquote>
+
+        <hr class= 'my-4' style = 'margin: 0px 10px -10px 10px'>
+        <p class = 'lead' id = 'card-content'>{{post.content |truncatewords:25}} </p>
+        <p class= 'lead' id = 'card-date'>-{{post.create_date}}</p>
+        </div>
+        {% endfor %}
+
+
+
+    </div>
+  </div>
+{% endblock %}

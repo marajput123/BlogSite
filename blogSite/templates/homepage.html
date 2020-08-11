@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block login %}
+<form class="form-inline" method='post'>
+  {% csrf_token %}
+  <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username" aria-label="Search">
+  <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password" aria-label="Search">
+  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+
+{% endblock %}
+
+{% block body %}
+
+<div class="container">
+  <div class="jumbotron">
+    <h1 class='display-4'>Welcome to the Blog Site</h1>
+    <hr class='my-4'>
+    <p>Check out the most recent blogs!.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'appOne:list' %}" role="button">Go!</a>
+  </div>
+</div>
+{% endblock %}

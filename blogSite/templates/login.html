@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  login
+{% endblock %}
+
+{% block login %}
+<form class="form-inline" action="{% url 'user_login' %}">
+  {% csrf_token %}
+  <button style = "margin-left: 5px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <form class="from-group"  method="post">
+        {% csrf_token %}
+        <label for="username">Username</label>
+        <input class='form-control' type="text" name="username" id='username' placeholder="Username">
+        <br>
+        <label for="Password">Password</label>
+        <input type="password" class='form-control' name="password" id='password' placeholder='Password'>
+        <br>
+        <input type="submit" class='btn btn-primary' name="" value="Login">
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+  Delete Post
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <p class='lead'>Are you sure you want to delete the blog titled <i>{{post.title}}</i>?</p>
+      <form class="" method="post">
+        {% csrf_token %}
+        <input type="submit" class='btn btn-danger' value="Delete">
+        <a class = 'btn btn-primary' href="{% url 'appOne:my_blog_detail' pk=post.pk%}">Cancel</a>
+      </form>
+      <hr class = my-4>
+    </div>
+  </div>
+{% endblock %}

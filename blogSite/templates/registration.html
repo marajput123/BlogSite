@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  Registration
+{% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/registration_style.css' %}">
+{% endblock %}
+
+{% block login %}
+<form class="form-inline" action="{% url 'user_login' %}">
+  {% csrf_token %}
+  <button style = "margin-left: 5px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+</form>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if is_registered %}
+      <h1 class='display-4'>Thank You!</h1>
+      {% else %}
+      <form class="" method="post">
+        <div class="form-group">
+        {% csrf_token %}
+        <label for="first_name">First Name:</label>
+        {{forms.first_name}}
+        <label for="last_name">Last Name:</label>
+        {{forms.last_name}}
+        <label for="username">Username:</label>
+        {{forms.username}}
+        <label for="email">Email:</label>
+        {{forms.email}}
+        <label for="password">Password:</label>
+        {{forms.password}}
+        <small id="password" class="form-text text-muted">Never share you password with anyone.</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+      </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class='display-4'>Draft</h1>
+      <hr class='my-4'>
+      <form class=""  method="post">
+        {% csrf_token %}
+        <label for="title">Title:</label>
+        {{form.title}}
+        <br>
+        <label for="content">Body:</label>
+        <br>
+        {{form.content}}
+        <br>
+        <input class='btn btn-warning' type="submit" name="" value="Update">
+      </form>
+    </div>
+
+  </div>
+{% endblock %}
