@@ -14,7 +14,9 @@
 {% block body %}
   <div class="container">
     <div class="jumbotron">
+      <h1 class="display-4"> Login</h1>
       <form class="from-group"  method="post">
+        <hr class="my-4"/>
         {% csrf_token %}
         <label for="username">Username</label>
         <input class='form-control' type="text" name="username" id='username' placeholder="Username">

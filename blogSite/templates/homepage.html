@@ -1,4 +1,16 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title %}
+  Homepage
+{% endblock %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/homepageStyle.css' %}"
+  <script src="{% static 'js/homepageScript.js' %}">
+
+  </script>
+{% endblock %}
 
 {% block login %}
 <form class="form-inline" method='post'>
@@ -17,7 +29,63 @@
     <h1 class='display-4'>Welcome to the Blog Site</h1>
     <hr class='my-4'>
     <p>Check out the most recent blogs!.</p>
-    <a class="btn btn-primary btn-lg" href="{% url 'appOne:list' %}" role="button">Go!</a>
+    <div class = "container">
+      <a
+        class="btn btn-primary btn-lg tooltop"
+        href="{% url 'appOne:list' %}"
+        role="button">
+        Go!
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="jumbotron">
+    <h6 class="display-4">Get Started!</h6>
+    <hr class="my-4"/>
+    <table>
+      <tr>
+        <td>
+          <p class="lead">
+              1.) Register!
+          </p>
+        </td>
+        <td>
+          <img src="{% static 'images/registerImg.jpg' %}" class="howto-img-square"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="lead">
+            2.) Login!
+          </p>
+        </td>
+        <td>
+          <img src="{% static 'images/loginImg.jpg' %}" class="howto-img-rectangle"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="lead">
+            3.) Blog!
+          </p>
+        </td>
+        <td>
+          <img src="{% static 'images/blogImg.jpg' %}" class="howto-img"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="lead">
+            4.) Share!
+          </p>
+        </td>
+        <td>
+          <img src="{% static 'images/publishImg.jpg' %}" class="howto-img"/>
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
 {% endblock %}

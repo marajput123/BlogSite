@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
 
 {% block title %}
   Post Detail
 {% endblock %}
 
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/blogDetailStyle.css'%}">
+{% endblock %}
+
+
 {% block login %}
 <form class="form-inline" action="{% url 'user_login' %}">
   {% csrf_token %}
-  <button style = "margin-left: 5px" class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
+  <button class="btn btn-outline-success my-2 my-sm-0 login-btn" type="submit">Login</button>
 </form>
 {% endblock %}
 
@@ -15,22 +22,22 @@
   <div class="container">
     <div class="jumbotron">
       <h1 class= 'display-4'>{{post_detail.title}}</h1>
-      <p class='lead' style='margin-left: 10px'>by: {{post_detail.user.last_name}}, {{post_detail.user.first_name}}</p>
-      <p class='lead' style='margin-left: 10px; margin-top: -10px'>{{post_detail.create_date}}</p>
+      <p class='lead post-detail-username'>by: {{post_detail.user.last_name}}, {{post_detail.user.first_name}}</p>
+      <p class='lead post-detail-date' >{{post_detail.create_date}}</p>
       <hr class= 'my-4'>
-      <p style='text-indent: 50px;'>{{post_detail.content}}</p>
+      <p class="post-detail-content">{{post_detail.content}}</p>
     </div>
   </div>
 
   <div class="container">
     <div class="jumbotron">
       <h4>Comments</h4>
-      <hr style='width:100%'>
+      <hr class="comment-size">
       {% for comment in post_detail.comments.all %}
       <p><u>{{comment.author}}</u> comments:</p>
-      <p>{{comment.com_content}}</p>
+      <p class="comment-content">{{comment.com_content}}</p>
       <p>-{{comment.create_date}}</p>
-      <hr style = 'width: 75%'>
+      <hr class="comment-ruler">
       {% endfor %}
       <a class="btn btn-primary" href="{% url 'appOne:create_comment' pk=post_detail.pk%}"class="btn btn-primary">Comment</a>
     </div>

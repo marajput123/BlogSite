@@ -1,5 +1,6 @@
 .card{
   margin-top: 20px;
+  border-radius: 2rem;
 }
 
 #card-content{
@@ -8,4 +9,8 @@
 
 #card-date{
   margin-left: 600px;
+}
+
+.blackquote-margin{
+  margin: 7px 7px 0px 7px;
 }

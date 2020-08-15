@@ -1,0 +1,29 @@
+.howto-img-square{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100px;
+    height: 100px
+}
+.howto-img-rectangle{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 400px;
+    height: 50px
+}
+.howto-img{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 250px;
+    height: 200px
+}
+
+.howto-p{
+  text-align: center;
+  display: block;
+}
+td{
+  padding-bottom: 20px
+}

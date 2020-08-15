@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+
 {% block title %}
   Drafts
 {% endblock %}
@@ -11,17 +12,17 @@
 {% block body %}
   <div class="container">
     <div class="jumbotron">
-      <h1 class= 'display-4'>Drafts</h1>
+      <h1 class= 'display-4'>Drafts.</h1>
       <hr class= 'my-4'>
 
           {% for post in draft_list %}
               <div class="card">
-          <blockquote class="blockquote text-center" style = 'margin: 7px 7px 0px 7px;'>
+          <blockquote class="blockquote text-center blackquote-margin">
             <p class="mb-0 p-3 mb-2 "><a class="text-secondary" href="{{post.id}}">{{post.title}}.</a></p>
             <footer class="blockquote-footer">{{post.user.last_name}}, {{post.user.first_name}}</footer>
           </blockquote>
 
-          <hr class= 'my-4' style = 'margin: 0px 10px -10px 10px'>
+          <hr class= 'my-4 blackquote-hr' style = 'margin: 0px 10px -10px 10px'>
           <p class = 'lead' id = 'card-content'>{{post.content |truncatewords:25}} </p>
           <p class= 'lead' id = 'card-date'>-{{post.create_date}}</p>
                 <a class='btn btn-primary' href="{% url 'appOne:publish' pk=post.id%}">Publish</a>
